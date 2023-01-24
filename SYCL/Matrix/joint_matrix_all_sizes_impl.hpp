@@ -174,22 +174,22 @@ int init_and_multiply() {
 }
 
 int main() {
-  // init_and_multiply<bfloat16, float, 2, 1, 16, 16>();
-  // init_and_multiply<bfloat16, float, 2, 2, 16, 16>();
-  // init_and_multiply<bfloat16, float, 2, 3, 16, 16>();
+  init_and_multiply<bfloat16, float, 2, 1, 16, 16>();
+  init_and_multiply<bfloat16, float, 2, 2, 16, 16>();
+  init_and_multiply<bfloat16, float, 2, 3, 16, 16>();
   init_and_multiply<bfloat16, float, 2, 4, 16, 16>();
-  // init_and_multiply<bfloat16, float, 2, 5, 16, 16>();
-  // init_and_multiply<bfloat16, float, 2, 6, 16, 16>();
-  // init_and_multiply<bfloat16, float, 2, 7, 16, 16>();
-  // init_and_multiply<bfloat16, float, 2, 8, 16, 16>();
+  init_and_multiply<bfloat16, float, 2, 5, 16, 16>();
+  init_and_multiply<bfloat16, float, 2, 6, 16, 16>();
+  init_and_multiply<bfloat16, float, 2, 7, 16, 16>();
+  init_and_multiply<bfloat16, float, 2, 8, 16, 16>();
 
-  // init_and_multiply<int8_t, int32_t, 4, 1, 16, 32>();
-  // init_and_multiply<int8_t, int32_t, 4, 2, 16, 32>();
-  // init_and_multiply<int8_t, int32_t, 4, 3, 16, 32>();
-  // init_and_multiply<int8_t, int32_t, 4, 4, 16, 32>();
-  // init_and_multiply<int8_t, int32_t, 4, 5, 16, 32>();
-  // init_and_multiply<int8_t, int32_t, 4, 6, 16, 32>();
-  // init_and_multiply<int8_t, int32_t, 4, 7, 16, 32>();
-  // init_and_multiply<int8_t, int32_t, 4, 8, 16, 32>();
+  init_and_multiply<int8_t, int32_t, 4, 1, 16, 32>();
+  init_and_multiply<int8_t, int32_t, 4, 2, 16, 32>();
+  init_and_multiply<int8_t, int32_t, 4, 3, 16, 32>();
+  init_and_multiply<int8_t, int32_t, 4, 4, 16, 32>();
+  init_and_multiply<int8_t, int32_t, 4, 5, 16, 32>();
+  init_and_multiply<int8_t, int32_t, 4, 6, 16, 32>();
+  init_and_multiply<int8_t, int32_t, 4, 7, 16, 32>();
+  init_and_multiply<int8_t, int32_t, 4, 8, 16, 32>();
   return 0;
 }
