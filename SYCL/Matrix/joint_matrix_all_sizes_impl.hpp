@@ -154,7 +154,7 @@ int init_and_multiply() {
   for (int i = 0; i < MATRIX_M; i++) {
     for (int j = 0; j < MATRIX_N; j++) {
       if constexpr (std::is_same_v<Ta, bfloat16> && std::is_same_v<Tc, float>) {
-        if ((fabs(C[i][j]) - fabs(D[i][j])) > BF16_EPSILON) {
+        if (fabs(C[i][j] - D[i][j]) > BF16_EPSILON) {
           std::cout << (res ? "passed" : "failed bfloat  ") << C[i][j]
                     << " D is " << D[i][j] << std::endl;
           res = false;
