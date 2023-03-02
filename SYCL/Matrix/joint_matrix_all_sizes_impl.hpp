@@ -1,4 +1,5 @@
 #define BF16_EPSILON 0.00781250
+static constexpr size_t M_MULTIPLIER = 16;
 
 template <typename T, size_t NUM_ROWS, size_t NUM_COLS> struct big_matrix {
 private:
@@ -83,7 +84,6 @@ void matrix_multiply(big_matrix<T1, M, N> &C, big_matrix<T2, M, K> &A,
    }).wait();
 }
 
-static constexpr size_t MATRIX_M = 128;
 static constexpr size_t MATRIX_N = 128;
 static constexpr size_t MATRIX_K = 128;
 
@@ -110,6 +110,10 @@ void matrix_multiply_ref(Ta *A, Ta *B, Tc *C, int M, int N, int K) {
 template <typename Ta, typename Tc, int vnni_factor, size_t tM, size_t tN,
           size_t tK>
 int init_and_multiply() {
+
+  static constexpr size_t MATRIX_M = tM * M_MULTIPLIER;
+  std::cout << "MATRIX_M=" << MATRIX_M << "\n";
+
   Ta A[MATRIX_M][MATRIX_K];
   Ta B[MATRIX_K][MATRIX_N];
   Ta Bvnni[MATRIX_K / vnni_factor][MATRIX_N * vnni_factor];
@@ -155,16 +159,15 @@ int init_and_multiply() {
     for (int j = 0; j < MATRIX_N; j++) {
       if constexpr (std::is_same_v<Ta, bfloat16> && std::is_same_v<Tc, float>) {
         if (fabs(C[i][j] - D[i][j]) > BF16_EPSILON) {
-          std::cout << (res ? "passed" : "failed bfloat  ") << C[i][j]
-                    << " D is " << D[i][j] << std::endl;
           res = false;
+          std::cout << "Failed bfloat16: C is " << C[i][j]
+                                   << ", D is " << D[i][j] << std::endl;
         }
       } else if (std::is_same_v<Ta, int8_t> && std::is_same_v<Tc, int32_t>) {
         if (C[i][j] != D[i][j]) {
-          std::cout << (res ? "passed" : "failed") << C[i][j] << " D is "
-                    << D[i][j] << std::endl;
-
           res = false;
+          std::cout << "Failed int8_t: C is " << C[i][j]
+                                 << ", D is " << D[i][j] << std::endl;
         }
       }
     }
