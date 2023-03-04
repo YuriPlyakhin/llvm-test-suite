@@ -29,7 +29,7 @@ bool check(float a, float b) {
   return fabs(2 * (a - b) / (a + b)) > bf16_eps * 2;
 }
 
-bool check(bool a, bool b) { return (a == b); }
+bool check(bool a, bool b) { return (a != b); }
 
 #define TEST_BUILTIN_1_SCAL_IMPL(NAME)                                         \
   {                                                                            \
