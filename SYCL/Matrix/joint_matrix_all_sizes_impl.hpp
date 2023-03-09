@@ -160,14 +160,14 @@ int init_and_multiply() {
       if constexpr (std::is_same_v<Ta, bfloat16> && std::is_same_v<Tc, float>) {
         if (fabs(C[i][j] - D[i][j]) > BF16_EPSILON) {
           res = false;
-          std::cout << "Failed bfloat16: C is " << C[i][j]
-                                   << ", D is " << D[i][j] << std::endl;
+          std::cout << "Failed bfloat16: C is " << C[i][j] << ", D is "
+                    << D[i][j] << std::endl;
         }
       } else if (std::is_same_v<Ta, int8_t> && std::is_same_v<Tc, int32_t>) {
         if (C[i][j] != D[i][j]) {
           res = false;
-          std::cout << "Failed int8_t: C is " << C[i][j]
-                                 << ", D is " << D[i][j] << std::endl;
+          std::cout << "Failed int8_t: C is " << C[i][j] << ", D is " << D[i][j]
+                    << std::endl;
         }
       }
     }
