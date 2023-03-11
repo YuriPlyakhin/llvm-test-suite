@@ -10,6 +10,8 @@
 // RUN: %clangxx -fsycl %s -o %t.out -DSYCL_EXT_ONEAPI_MATRIX_VERSION=4
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
+// RUN: env IGC_JointMatrixLoadStoreOpt=0 %GPU_RUN_PLACEHOLDER %t.out
+// RUN: env IGC_JointMatrixLoadStoreOpt=1 %GPU_RUN_PLACEHOLDER %t.out
 
 #include <iostream>
 #include <sycl/sycl.hpp>

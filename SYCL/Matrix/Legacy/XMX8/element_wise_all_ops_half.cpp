@@ -5,12 +5,14 @@
 // SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 //
 //===----------------------------------------------------------------------===//
-// REQUIRES: matrix-xmx8
+// REQUIRES: matrix-xmx8,gpu
 
 // Only runs on DPAS because AMX implementation does not support half data type
 // yet
 // RUN: %clangxx -fsycl %s -o %t.out -DSYCL_EXT_ONEAPI_MATRIX_VERSION=1
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
+// RUN: env IGC_JointMatrixLoadStoreOpt=0 %GPU_RUN_PLACEHOLDER %t.out
+// RUN: env IGC_JointMatrixLoadStoreOpt=1 %GPU_RUN_PLACEHOLDER %t.out
 
 #include <iostream>
 #include <random>
