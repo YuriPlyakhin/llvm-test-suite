@@ -177,54 +177,23 @@ int init_and_multiply() {
 }
 
 int main() {
-#if defined(JOINT_MATRIX_TEST_BF16_1) || defined(JOINT_MATRIX_TEST_ALL_BF16)
   init_and_multiply<bfloat16, float, 2, 1, SG_SZ, 16>();
-#endif
-#if defined(JOINT_MATRIX_TEST_BF16_2) || defined(JOINT_MATRIX_TEST_ALL_BF16)
   init_and_multiply<bfloat16, float, 2, 2, SG_SZ, 16>();
-#endif
-#if defined(JOINT_MATRIX_TEST_BF16_3) || defined(JOINT_MATRIX_TEST_ALL_BF16)
   init_and_multiply<bfloat16, float, 2, 3, SG_SZ, 16>();
-#endif
-#if defined(JOINT_MATRIX_TEST_BF16_4) || defined(JOINT_MATRIX_TEST_ALL_BF16)
   init_and_multiply<bfloat16, float, 2, 4, SG_SZ, 16>();
-#endif
-#if defined(JOINT_MATRIX_TEST_BF16_5) || defined(JOINT_MATRIX_TEST_ALL_BF16)
   init_and_multiply<bfloat16, float, 2, 5, SG_SZ, 16>();
-#endif
-#if defined(JOINT_MATRIX_TEST_BF16_6) || defined(JOINT_MATRIX_TEST_ALL_BF16)
   init_and_multiply<bfloat16, float, 2, 6, SG_SZ, 16>();
-#endif
-#if defined(JOINT_MATRIX_TEST_BF16_7) || defined(JOINT_MATRIX_TEST_ALL_BF16)
   init_and_multiply<bfloat16, float, 2, 7, SG_SZ, 16>();
-#endif
-#if defined(JOINT_MATRIX_TEST_BF16_8) || defined(JOINT_MATRIX_TEST_ALL_BF16)
   init_and_multiply<bfloat16, float, 2, 8, SG_SZ, 16>();
-#endif
 
-#if defined(JOINT_MATRIX_TEST_INT8_1) || defined(JOINT_MATRIX_TEST_ALL_INT8)
   init_and_multiply<int8_t, int32_t, 4, 1, SG_SZ, 32>();
-#endif
-#if defined(JOINT_MATRIX_TEST_INT8_2) || defined(JOINT_MATRIX_TEST_ALL_INT8)
   init_and_multiply<int8_t, int32_t, 4, 2, SG_SZ, 32>();
-#endif
-#if defined(JOINT_MATRIX_TEST_INT8_3) || defined(JOINT_MATRIX_TEST_ALL_INT8)
   init_and_multiply<int8_t, int32_t, 4, 3, SG_SZ, 32>();
-#endif
-#if defined(JOINT_MATRIX_TEST_INT8_4) || defined(JOINT_MATRIX_TEST_ALL_INT8)
   init_and_multiply<int8_t, int32_t, 4, 4, SG_SZ, 32>();
-#endif
-#if defined(JOINT_MATRIX_TEST_INT8_5) || defined(JOINT_MATRIX_TEST_ALL_INT8)
   init_and_multiply<int8_t, int32_t, 4, 5, SG_SZ, 32>();
-#endif
-#if defined(JOINT_MATRIX_TEST_INT8_6) || defined(JOINT_MATRIX_TEST_ALL_INT8)
   init_and_multiply<int8_t, int32_t, 4, 6, SG_SZ, 32>();
-#endif
-#if defined(JOINT_MATRIX_TEST_INT8_7) || defined(JOINT_MATRIX_TEST_ALL_INT8)
   init_and_multiply<int8_t, int32_t, 4, 7, SG_SZ, 32>();
-#endif
-#if defined(JOINT_MATRIX_TEST_INT8_8) || defined(JOINT_MATRIX_TEST_ALL_INT8)
   init_and_multiply<int8_t, int32_t, 4, 8, SG_SZ, 32>();
-#endif
+
   return 0;
 }
